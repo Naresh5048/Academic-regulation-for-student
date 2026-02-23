@@ -38,9 +38,9 @@ async def sync_endpoint():
     try:
         success = ingestion_engine.sync_data()
         if success:
-            return {"status": "success", "message": "Re-indexed data folder successfully."}
+            return {"status": "success", "message": "Re-indexed data folder successfully (PDFs and Text Updates)."}
         else:
-            return {"status": "error", "message": "Failed to sync. Ensure ./data contains PDF files."}
+            return {"status": "error", "message": "Failed to sync. Ensure ./data contains PDF or Text files."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

@@ -6,7 +6,7 @@ const API_BASE = "http://localhost:8000";
 
 function App() {
     const [messages, setMessages] = useState([
-        { role: 'bot', content: "Hello! I'm your Official LBRCE Assistant. How can I help you with campus notices today?" }
+        { role: 'bot', content: "Hello! I'm your Official LBRCE Assistant. I can help you with campus notices and latest faculty updates or class changes. How can I assist you today?" }
     ]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
@@ -104,7 +104,10 @@ function App() {
 
                 <div className="mt-auto p-4 bg-slate-700/30 rounded-xl border border-dashed border-slate-600">
                     <p className="text-[10px] text-slate-400 leading-relaxed">
-                        Assumption: If year is missing in documents, current year is <span className="text-blue-400 font-bold">2026</span>.
+                        Features: Supports <span className="text-blue-400 font-bold">PDF Notices</span> & <span className="text-emerald-400 font-bold">Live Messages</span>.
+                    </p>
+                    <p className="text-[10px] text-slate-500 mt-1">
+                        Assumption: If year is missing, current year is 2026.
                     </p>
                 </div>
             </aside>
@@ -171,7 +174,7 @@ function App() {
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            placeholder="Ask about holiday lists, deadlines, or events..."
+                            placeholder="Ask about schedule changes, faculty messages, or events..."
                             className="w-full bg-slate-800/50 backdrop-blur-sm border-2 border-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 rounded-full py-5 px-8 pr-16 transition-all duration-300 text-lg shadow-2xl placeholder:text-slate-500 placeholder:font-light"
                         />
                         <button
